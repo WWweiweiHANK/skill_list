@@ -8,6 +8,7 @@
 skills/
 ├── design/
 │   └── game-design-thinking-partner/
+│   └── holo-card/
 ├── ui/
 │   └── ui-semantic-lightweight-arcade/
 └── development/
@@ -22,6 +23,7 @@ workflows/
 | 分类 | Skill | 用途 |
 | --- | --- | --- |
 | Design | [game-design-thinking-partner](skills/design/game-design-thinking-partner/SKILL.md) | 核心体验、玩法发散与收束、一次一个问题的 Grill |
+| Design | [holo-card](skills/design/holo-card/SKILL.md) | 将单张图片制作成带景深、视差、轮廓光和翻转交互的全息/光栅卡 |
 | UI | [ui-semantic-lightweight-arcade](skills/ui/ui-semantic-lightweight-arcade/SKILL.md) | 猫咪增量项目的视觉、颜色语义与 Godot 布局 |
 | Development | [project-change-log](skills/development/project-change-log/SKILL.md) | 修改后续写项目记录，保留验证与维护信息 |
 
