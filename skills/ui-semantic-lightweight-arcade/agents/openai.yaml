@@ -1,4 +1,0 @@
-interface:
-  display_name: "轻量街机 UI 规范"
-  short_description: "为猫咪增量项目统一轻量街机视觉、颜色语义和 Godot 界面实现。"
-  default_prompt: "请使用 $ui-semantic-lightweight-arcade 协助完成本次项目任务。"
