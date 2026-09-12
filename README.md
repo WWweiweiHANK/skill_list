@@ -9,6 +9,7 @@ skills/
 ├── design/
 │   └── game-design-thinking-partner/
 │   └── holo-card/
+│   └── retro-liminal-ps1-background/
 ├── ui/
 │   └── ui-semantic-lightweight-arcade/
 └── development/
@@ -24,6 +25,7 @@ workflows/
 | --- | --- | --- |
 | Design | [game-design-thinking-partner](skills/design/game-design-thinking-partner/SKILL.md) | 核心体验、玩法发散与收束、一次一个问题的 Grill |
 | Design | [holo-card](skills/design/holo-card/SKILL.md) | 将单张图片制作成带景深、视差、轮廓光和翻转交互的全息/光栅卡 |
+| Design | [retro-liminal-ps1-background](skills/design/retro-liminal-ps1-background/SKILL.md) | 生成后室 / liminal 气质的 PS1 低模、CRT/VHS 老游戏背景场景，默认 4:3 |
 | UI | [ui-semantic-lightweight-arcade](skills/ui/ui-semantic-lightweight-arcade/SKILL.md) | 猫咪增量项目的视觉、颜色语义与 Godot 布局 |
 | Development | [project-change-log](skills/development/project-change-log/SKILL.md) | 修改后续写项目记录，保留验证与维护信息 |
 
