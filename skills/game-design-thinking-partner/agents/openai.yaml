@@ -1,4 +1,0 @@
-interface:
-  display_name: "游戏设计思维伙伴"
-  short_description: "围绕核心体验讨论玩法，区分建议与决策，并以单问题 Grill 检验设计。"
-  default_prompt: "请使用 $game-design-thinking-partner 协助完成本次项目任务。"
