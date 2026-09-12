@@ -1,13 +1,40 @@
-# 自定义 Skills
+# 自定义 Skills 与工作模式
 
-本仓库保存以下三个自定义 Skill 的重建优化版。2026-09-06 未取得此前 Skill 原文件；本版依据用户已确认的对话要求整理，不是对旧文件的逐行修改。
+本仓库用于集中保存可复用的自定义 Skill，以及组合多个 Skill 的上层工作模式。
 
-| Skill | 用途 |
+## 目录结构
+
+```text
+skills/
+├── design/
+│   └── game-design-thinking-partner/
+├── ui/
+│   └── ui-semantic-lightweight-arcade/
+└── development/
+    └── project-change-log/
+
+workflows/
+└── game-studio-companion/
+```
+
+## Skills
+
+| 分类 | Skill | 用途 |
+| --- | --- | --- |
+| Design | [game-design-thinking-partner](skills/design/game-design-thinking-partner/SKILL.md) | 核心体验、玩法发散与收束、一次一个问题的 Grill |
+| UI | [ui-semantic-lightweight-arcade](skills/ui/ui-semantic-lightweight-arcade/SKILL.md) | 猫咪增量项目的视觉、颜色语义与 Godot 布局 |
+| Development | [project-change-log](skills/development/project-change-log/SKILL.md) | 修改后续写项目记录，保留验证与维护信息 |
+
+## Workflows
+
+| 工作模式 | 用途 |
 | --- | --- |
-| [game-design-thinking-partner](skills/game-design-thinking-partner/SKILL.md) | 核心体验、玩法发散与收束、一次一个问题的 Grill |
-| [ui-semantic-lightweight-arcade](skills/ui-semantic-lightweight-arcade/SKILL.md) | 猫咪增量项目的视觉、颜色语义与 Godot 布局 |
-| [project-change-log](skills/project-change-log/SKILL.md) | 修改后续写项目记录，保留验证与维护信息 |
+| [GameStudio GPT Companion](workflows/game-studio-companion/README.md) | 作为游戏开发上层协作模式，组织设计、UI 与工程变更记录 Skill；ChatGPT 负责设计/产品思考，Codex 负责工程执行 |
 
-每个文件夹包含 SKILL.md 与 agents/openai.yaml；UI 的历史布局单独放在 references 中按需读取。将完整 Skill 文件夹导入支持该格式的工具；仅上传 GitHub 不会让任意工具自动加载它们。
+## 约定
 
-本次优化：明确触发范围；隔离项目规范；区分候选建议与已确认规则；估时说明假设；日志区分实际完成、待办和未验证；不把文件保存误报成远程上传。保留既有 LICENSE 与 .gitattributes。
+- 单一、可复用的能力放在 `skills/<category>/<skill-name>/`。
+- 跨多个 Skill 的协作流程放在 `workflows/`，不伪装成单一 Skill。
+- 每个 Skill 保留自己的 `SKILL.md`、`agents/` 与必要的 `references/`。
+- 项目自身的 GDD、SPEC、开发进度和实现文档应与项目仓库绑定，不存进本 Skill 仓库。
+- 将 Skill 文件夹上传到 GitHub只代表版本化保存；具体工具仍需显式加载或安装这些 Skill 才会执行其规则。
