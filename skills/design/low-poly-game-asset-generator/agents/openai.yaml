@@ -1,0 +1,4 @@
+interface:
+  display_name: "低多边形游戏素材生成器"
+  short_description: "把参考对象重绘成轮廓清晰、切面明显、透明背景的 Low Poly 游戏素材。"
+  default_prompt: "请使用 $low-poly-game-asset-generator 将本次对象制作成低多边形游戏素材。"
