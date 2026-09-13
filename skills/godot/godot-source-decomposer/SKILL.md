@@ -9,8 +9,8 @@ Treat the requested effect as a dependency-backed visual component, not as an is
 
 ## Modes
 
-- **Analyze**: locate and confirm the effect boundary; report evidence, dependency graph, layout intent, inheritance/composition, business-logic seams, and risks. Do not mutate files. Produce an extraction record conforming to `schemas/extraction.schema.json`.
-- **Extract**: only after the user explicitly confirms an Analyze report with a `safe` or mitigated `conditional` verdict, isolate the reusable visual/UI portion, preserve interfaces, and place it under `Godot_UI_GameMaker_skill/<family>/`. Update the registry.
+- **Analyze**: locate and confirm the effect boundary; report evidence, the full visual-fidelity manifest, dependency graph, layout intent, inheritance/composition, business-logic seams, and risks. Do not mutate files. Produce an extraction record conforming to `schemas/extraction.schema.json`.
+- **Extract**: only after the user explicitly selects **faithful reconstruction** or **generalized redesign** in response to an Analyze report. Isolate the reusable visual/UI portion, preserve interfaces, and place it under `Godot_UI_GameMaker_skill/<family>/`. Update the registry.
 - **Build**: configure or generate a family component in a target project by selecting a family, base capability, and optional capabilities. Do not enable advanced effects by default. Report the selected preset/variant, public interface, and responsive assumptions before editing.
 
 Use the user's explicitly named mode. If omitted, begin in Analyze. Analyze never silently becomes Extract or Build.
@@ -18,12 +18,19 @@ Use the user's explicitly named mode. If omitted, begin in Analyze. Analyze neve
 ## Required workflow
 
 1. Resolve the target project and ask for confirmation when the named effect has multiple plausible boundaries. Record the selected nodes/scenes/resources and exclusions.
-2. Scan the dependency graph: `.tscn`, `.gd`, `.gdshader`, `.tres/.res`, Theme and StyleBox resources, materials, AnimationPlayer/Tween, NodePath references, signals, `class_name`, script inheritance, and scene inheritance. Follow indirect references until the visual behavior is explained.
-3. Reconstruct layout intent from anchors, offsets, size flags, Containers, minimum sizes, viewport/stretch settings, and aspect assumptions. Test or reason about landscape, portrait, and at least one alternate resolution; flag absolute coordinates that encode a fragile assumption.
+2. Scan the dependency graph: `.tscn`, `.gd`, `.gdshader`, `.tres/.res`, Theme, fonts, StyleBox resources, textures/icons, materials, audio streams/buses, AnimationPlayer/Tween, global singletons, NodePath references, signals, `class_name`, script inheritance, and scene inheritance. Follow indirect references until the visual behavior is explained.
+3. Produce a visual-fidelity manifest before proposing code: Theme, fonts, typography, StyleBox state values, texture/icon/shader resources, colors, borders, shadows, outlines, audio feedback, animation parameters, coordinates, offsets, anchors, transforms, size flags, Containers, minimum sizes, viewport/stretch settings, and aspect assumptions. Preserve numerical source values in the report. Test or reason about landscape, portrait, and at least one alternate resolution; flag absolute coordinates that encode a fragile assumption.
 4. Separate business logic. Keep signals, callbacks, public methods/properties, and resource/config interfaces; exclude economy, progression, dialogue, save, networking, and other domain decisions unless explicitly requested as an interface contract.
-5. Perform a compatibility/risk gate before extraction: Godot version/API, theme/resource paths, shader uniforms and render assumptions, input routing, focus/accessibility, scene ownership, NodePath fragility, lifecycle, and likely failure modes. Stop and report if risk is unresolved.
+5. Perform a compatibility/risk gate before extraction: Godot version/API, theme/resource paths, shader uniforms and render assumptions, input routing, focus/accessibility, scene ownership, NodePath fragility, lifecycle, and likely failure modes. Mark the work `blocked` until the user selects an extraction mode; do not silently replace or omit any manifest item.
 6. Choose architecture using shallow inheritance for identity/base contract and composition for capabilities. Prefer parameterization, then a Variant, then an existing Capability, then a new Capability, and only lastly a new Component Family. Consult and validate against `Godot_UI_GameMaker_skill/registry/component-registry.json` and `schemas/registry.schema.json` before adding anything.
-7. After confirmation, extract, normalize paths, and preserve a small public interface. For files copied with a scene, make external-resource paths relative to the scene file; reserve `res://` paths for deliberate host-project dependencies and declare them. Add/update registry metadata, then verify the result in a minimal fixture after copying the complete component family into a different target directory, or verify it in the target project. Report what was changed and remaining caveats. Do not call a result reusable merely because its source scene opens.
+7. After confirmation, extract, normalize paths, and preserve a small public interface. For files copied with a scene, make external-resource paths relative to the scene file; reserve `res://` paths for deliberate host-project dependencies and declare them. In faithful reconstruction, retain every required manifest item and compare the result against the source. In generalized redesign, name every intentional deviation and never call the result a reconstruction. Add/update registry metadata, then verify the result in a minimal fixture after copying the complete component family into a different target directory, or verify it in the target project. Report what was changed and remaining caveats. Do not call a result reusable merely because its source scene opens.
+
+## Extraction choice gate
+
+After Analyze, show the manifest and dependency roles, then ask the user to choose one mode. **Do not extract until the user selects** a mode.
+
+- **faithful reconstruction**: retain source Theme, fonts, visual resources, values, layout rules, animation behavior, and declared dependencies. If a required asset cannot be copied or referenced, stop and state that visual parity cannot be claimed.
+- **generalized redesign**: create a portable component with an explicitly new Theme, assets, defaults, or feedback implementation. Treat source resources as references only; list each intentional visual and behavioral deviation.
 
 ## Component library placement
 

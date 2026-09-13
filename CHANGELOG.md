@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-13 — 强化 Godot 保真拆解门槛
+
+- 调整：`godot-source-decomposer` 在任何提取前必须生成视觉保真清单，覆盖 Theme、字体、排版、StyleBox、资源、边框、阴影、音效、动画、坐标、偏移、锚点、尺寸与视口约束。
+- 调整：新增强制选择门槛。用户必须在 `faithful reconstruction` 与 `generalized redesign` 之间作出选择；未选择前提取状态为 `blocked`，不得删除、替换或以通用默认值补全源视觉与依赖。
+- 验证：新增并运行拆解 Skill 的保真门槛静态检查。
+
 ## 2026-09-13 — 修复 Godot 组件资源路径可移植性
 
 - 修复：`godot-elastic-button` 的 `弹性按钮.tscn` 改用同级相对路径引用两个脚本，不再依赖固定的 `res://ui/弹性按钮/` 目录；使用说明和静态契约测试同步更新。

@@ -6,10 +6,15 @@ $说明文本 = Get-Content -Raw -LiteralPath $说明路径
 
 foreach ($片段 in @(
 	"relative to the scene file",
-	"minimal fixture"
+	"minimal fixture",
+	"faithful reconstruction",
+	"generalized redesign",
+	"Theme, fonts",
+	"coordinates, offsets",
+	"Do not extract until the user selects"
 )) {
 	if (-not $说明文本.Contains($片段)) {
-		throw "拆解 Skill 缺少组件路径可移植性要求：$片段"
+		throw "拆解 Skill 缺少保真拆解门槛：$片段"
 	}
 }
 

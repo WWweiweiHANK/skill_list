@@ -16,6 +16,12 @@ animation/tween -> trigger -> affected properties
 
 For every dependency mark `required`, `optional`, `project-specific`, or `excluded-business-logic`. A NodePath is portable only when its owner and node identity remain stable. When a scene and its required files are distributed together, use paths relative to the scene file; a `res://` path is reserved for an explicitly declared host-project dependency.
 
+## Visual-fidelity manifest and decision gate
+
+Before Extract, record source values and resource paths for Theme, fonts, typography, StyleBox states, textures/icons, shaders/materials, colors, borders, shadows, outlines, audio resources/buses, animation and spring parameters, coordinates, offsets, anchors, transforms, Containers, minimum sizes, viewport/stretch settings, and aspect constraints. Do not substitute generic defaults while making this record.
+
+Classify every missing or non-portable item as a dependency risk. Present the completed manifest and require the user to choose `faithful reconstruction` or `generalized redesign` before changing files. Faithful reconstruction retains all required visual and interaction inputs; generalized redesign records every deliberate deviation and must not be described as a source-faithful result.
+
 For Analyze, first give the user a scope statement: target effect, included root nodes, supporting resources, and excluded neighboring effects. Ask a focused confirmation only when more than one scope is credible. Record the result using `../Godot_UI_GameMaker_skill/schemas/extraction.schema.json`.
 
 ## Layout reconstruction
