@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-13 — 新增 Godot 视觉组件 Skills
+
+- 新增：`godot-elastic-button`，提供四态 StyleBox、悬停缩放、按压弹性反馈、统一信号与可选本地音效的可复用 Godot 4 按钮资产。
+- 新增：`godot-crt-scanlines`，提供扫描线与轻度屏幕弯曲的无脚本 Godot 4 全屏覆盖层及参数化 shader。
+- 归档：两个 Skill 均归入 `skills/godot/`，保留其组件资产、提取记录和静态契约校验脚本；未纳入缓存或源项目专属资源。
+
 ## 2026-09-13 — 统一整理本机自定义 Skills
 
 - 目的：将仅存在于本机技能目录的个人 Skills 纳入 `skill_list` 版本控制，并统一分类。

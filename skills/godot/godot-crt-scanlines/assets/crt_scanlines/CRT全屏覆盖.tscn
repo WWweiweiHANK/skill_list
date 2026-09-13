@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://effects/crt_scanlines/crt_scanlines.gdshader" id="1_着色器"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_CRT"]
+shader = ExtResource("1_着色器")
+shader_parameter/resolution = Vector2(640, 360)
+shader_parameter/warp_amount = 0.05
+shader_parameter/scan_line_amount = 0.3
+
+[node name="CRT全屏覆盖" type="CanvasLayer"]
+layer = 18
+
+[node name="扫描线" type="ColorRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_CRT")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

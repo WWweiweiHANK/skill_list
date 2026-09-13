@@ -1,0 +1,58 @@
+{
+  "mode": "Extract",
+  "family": "screen-effect",
+  "scope": {
+    "included": [
+      "nearest-filtered screen sampling",
+      "scanline mask",
+      "barrel warp",
+      "full-viewport CanvasLayer and ColorRect host"
+    ],
+    "excluded": [
+      "color grading",
+      "vignette",
+      "chromatic aberration",
+      "shockwave",
+      "source post-processing autoload and per-screen tuning"
+    ]
+  },
+  "dependencies": [
+    {
+      "path": "assets/crt_scanlines/crt_scanlines.gdshader",
+      "role": "required"
+    },
+    {
+      "path": "assets/crt_scanlines/CRT全屏覆盖.tscn",
+      "role": "required"
+    },
+    {
+      "path": "Godot 4 CanvasItem hint_screen_texture support",
+      "role": "required"
+    },
+    {
+      "path": "host presentation-layer ordering",
+      "role": "project-specific"
+    },
+    {
+      "path": "source global post-processing controller and other shaders",
+      "role": "excluded-business-logic"
+    }
+  ],
+  "risk": {
+    "verdict": "conditional",
+    "mitigations": [
+      "Set resolution to the logical pixel render size, not the physical window size.",
+      "Choose CanvasLayer ordering according to whether UI should receive the effect.",
+      "Validate hint_screen_texture composition in the target renderer."
+    ]
+  },
+  "interfaces": {
+    "signals": [],
+    "methods": [],
+    "properties": [
+      "resolution",
+      "warp_amount",
+      "scan_line_amount"
+    ]
+  }
+}
