@@ -21,7 +21,7 @@ The optional capabilities are `悬停音效` and `点击音效`. Keep them unset
 
 ## Use
 
-1. Copy `弹性按钮.tscn`, `弹性按钮.gd`, and `弹性反馈.gd` together into the target Godot project. Preserve their relative paths.
+1. Copy `弹性按钮.tscn`, `弹性按钮.gd`, and `弹性反馈.gd` into the same directory anywhere in the target Godot project. Their scene references are relative, so no fixed `ui/` or `addons/` installation path is required.
 2. Instance the scene. Change appearance through exported colors, border, shadow, and feedback parameters rather than editing the scene internals.
 3. Connect `按钮已按下` to the owning feature. Use `设置文本` and `设置禁用状态` as the public interface.
 4. For a project-wide visual change, make a scene variant or inject Theme values. Do not add gameplay, save, progression, or scene-navigation decisions into the button script.

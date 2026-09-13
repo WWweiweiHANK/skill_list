@@ -14,7 +14,7 @@ shader material -> shader -> uniforms/render assumptions
 animation/tween -> trigger -> affected properties
 ```
 
-For every dependency mark `required`, `optional`, `project-specific`, or `excluded-business-logic`. A NodePath is portable only when its owner and node identity remain stable.
+For every dependency mark `required`, `optional`, `project-specific`, or `excluded-business-logic`. A NodePath is portable only when its owner and node identity remain stable. When a scene and its required files are distributed together, use paths relative to the scene file; a `res://` path is reserved for an explicitly declared host-project dependency.
 
 For Analyze, first give the user a scope statement: target effect, included root nodes, supporting resources, and excluded neighboring effects. Ask a focused confirmation only when more than one scope is credible. Record the result using `../Godot_UI_GameMaker_skill/schemas/extraction.schema.json`.
 

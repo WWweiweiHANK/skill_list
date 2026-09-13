@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-13 — 修复 Godot 组件资源路径可移植性
+
+- 修复：`godot-elastic-button` 的 `弹性按钮.tscn` 改用同级相对路径引用两个脚本，不再依赖固定的 `res://ui/弹性按钮/` 目录；使用说明和静态契约测试同步更新。
+- 调整：`godot-source-decomposer` 明确要求：随场景分发的依赖必须相对于场景文件引用，`res://` 仅用于已声明的宿主项目依赖；新增对应的规则验证脚本。
+- 归档：已同步两套完整 Skill 目录至 `skills/godot/`。
+
 ## 2026-09-13 — 新增 Godot 视觉组件 Skills
 
 - 新增：`godot-elastic-button`，提供四态 StyleBox、悬停缩放、按压弹性反馈、统一信号与可选本地音效的可复用 Godot 4 按钮资产。

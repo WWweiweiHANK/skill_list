@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://ui/弹性按钮/弹性按钮.gd" id="1_按钮"]
-[ext_resource type="Script" path="res://ui/弹性按钮/弹性反馈.gd" id="2_反馈"]
+[ext_resource type="Script" path="弹性按钮.gd" id="1_按钮"]
+[ext_resource type="Script" path="弹性反馈.gd" id="2_反馈"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBox_normal"]
 content_margin_left = 20.0

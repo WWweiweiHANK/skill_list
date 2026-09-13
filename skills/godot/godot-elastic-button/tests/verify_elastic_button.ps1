@@ -4,6 +4,7 @@ $技能根目录 = Split-Path -Parent $PSScriptRoot
 $场景路径 = Join-Path $技能根目录 "assets\elastic_button\弹性按钮.tscn"
 $按钮脚本路径 = Join-Path $技能根目录 "assets\elastic_button\弹性按钮.gd"
 $反馈脚本路径 = Join-Path $技能根目录 "assets\elastic_button\弹性反馈.gd"
+$说明路径 = Join-Path $技能根目录 "SKILL.md"
 
 foreach ($路径 in @($场景路径, $按钮脚本路径, $反馈脚本路径)) {
 	if (-not (Test-Path -LiteralPath $路径)) {
@@ -14,6 +15,7 @@ foreach ($路径 in @($场景路径, $按钮脚本路径, $反馈脚本路径)) 
 $场景文本 = Get-Content -Raw -LiteralPath $场景路径
 $按钮脚本文本 = Get-Content -Raw -LiteralPath $按钮脚本路径
 $反馈脚本文本 = Get-Content -Raw -LiteralPath $反馈脚本路径
+$说明文本 = Get-Content -Raw -LiteralPath $说明路径
 
 $场景契约 = [string[]]@(
 	'\[node name="弹性按钮" type="Control"',
@@ -28,6 +30,25 @@ foreach ($正则表达式 in $场景契约) {
 	if ($场景文本 -notmatch $正则表达式) {
 		throw "场景缺少契约：$正则表达式"
 	}
+}
+
+$相对脚本引用 = [string[]]@(
+	'path="弹性按钮.gd"',
+	'path="弹性反馈.gd"'
+)
+
+foreach ($片段 in $相对脚本引用) {
+	if (-not $场景文本.Contains($片段)) {
+		throw "场景脚本必须使用相对路径：$片段"
+	}
+}
+
+if ($场景文本.Contains('res://ui/弹性按钮/')) {
+	throw "场景不得依赖固定的 ui/弹性按钮 安装目录。"
+}
+
+if (-not $说明文本.Contains('same directory')) {
+	throw "Skill 说明必须明确三个组件文件可复制到任意目标目录的同级位置。"
 }
 
 foreach ($片段 in @(
