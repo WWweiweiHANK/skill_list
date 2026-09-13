@@ -1,0 +1,4 @@
+interface:
+  display_name: "GameArtAgent"
+  short_description: "Manage AI game-art production from exploration through archival."
+  default_prompt: "Use GameArtAgent to organize this game art workflow and propose the next decision."

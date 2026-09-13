@@ -1,45 +1,36 @@
 # 自定义 Skills 与工作模式
 
-本仓库用于集中保存可复用的自定义 Skill，以及组合多个 Skill 的上层工作模式。
+本仓库集中保存可复用的个人 Skill，以及组合多个 Skill 的上层工作模式。系统预装 Skill 与第三方插件 Skill 不在此仓库维护。
 
-## 目录结构
+## 分类原则
 
-```text
-skills/
-├── design/
-│   └── game-design-thinking-partner/
-│   └── holo-card/
-│   └── retro-liminal-ps1-background/
-├── ui/
-│   └── ui-semantic-lightweight-arcade/
-└── development/
-    └── project-change-log/
-
-workflows/
-└── game-studio-companion/
-```
+- 按主要使用场景分类，不按 Skill 的来源目录分类。
+- 每个 Skill 保持独立目录，完整保留 `SKILL.md`、`agents/`、`references/`、`scripts/` 与必要资源。
+- 名称使用 Skill 元数据中的稳定名称；例如 `jiagou_skill` 以 `godot-game-architecture-std` 保存。
+- 跨多个 Skill 的协作流程放在 `workflows/`，项目专属 GDD、SPEC、实现和进度文档留在对应项目仓库。
 
 ## Skills
 
-| 分类 | Skill | 用途 |
+| 分类 | Skills | 适用范围 |
 | --- | --- | --- |
-| Design | [game-design-thinking-partner](skills/design/game-design-thinking-partner/SKILL.md) | 核心体验、玩法发散与收束、一次一个问题的 Grill |
-| Design | [holo-card](skills/design/holo-card/SKILL.md) | 将单张图片制作成带景深、视差、轮廓光和翻转交互的全息/光栅卡 |
-| Design | [low-poly-game-asset-generator](skills/design/low-poly-game-asset-generator/SKILL.md) | 将参考对象重绘为透明背景、切面清晰的低多边形游戏素材 |
-| Design | [retro-liminal-ps1-background](skills/design/retro-liminal-ps1-background/SKILL.md) | 生成后室 / liminal 气质的 PS1 低模、CRT/VHS 老游戏背景场景，默认 4:3 |
-| UI | [ui-semantic-lightweight-arcade](skills/ui/ui-semantic-lightweight-arcade/SKILL.md) | 猫咪增量项目的视觉、颜色语义与 Godot 布局 |
-| Development | [project-change-log](skills/development/project-change-log/SKILL.md) | 修改后续写项目记录，保留验证与维护信息 |
+| [Creative](skills/creative/) | `game-art-agent`、`game-design-thinking-partner`、`holo-card`、`low-poly-game-asset-generator`、`retro-liminal-ps1-background` | 游戏创意、视觉资产与互动卡片 |
+| [Godot](skills/godot/) | `ai-gd-code-std`、`godot-elastic-button`、`godot-game-architecture-std`、`godot-source-decomposer` | Godot 4 代码、架构、组件与 UI 复用 |
+| [UI](skills/ui/) | `ui-semantic-lightweight-arcade` | 轻量街机风格与颜色语义 |
+| [Engineering](skills/engineering/) | `ai-py-code-std`、`systematic-debugging`、`test-driven-development`、`verification-before-completion`、`receiving-code-review`、`requesting-code-review` | Python 规范、调试、测试、验证与评审 |
+| [Project](skills/project/) | `game-dev-change-log-maintainer`、`project-change-log` | 项目开发变更记录 |
+| [Knowledge](skills/knowledge/) | `ima-skill`、`weread-skills` | 笔记、知识库与微信读书 |
+| [Codex](skills/codex/) | `create-rule`、`writing-skills` | Codex 规则与 Skill 编写维护 |
+| [Data](skills/data/) | `xlsx-authoring` | `.xlsx` 文件创作与验证 |
+| [Web](skills/web/) | `oil-motion` | 网页交互与运动设计 |
 
 ## Workflows
 
 | 工作模式 | 用途 |
 | --- | --- |
-| [GameStudio GPT Companion](workflows/game-studio-companion/README.md) | 作为游戏开发上层协作模式，组织设计、UI 与工程变更记录 Skill；ChatGPT 负责设计/产品思考，Codex 负责工程执行 |
+| [GameStudio GPT Companion](workflows/game-studio-companion/README.md) | 组织游戏设计、UI 与工程变更记录；ChatGPT 负责设计/产品思考，Codex 负责工程执行 |
 
-## 约定
+## 使用与维护
 
-- 单一、可复用的能力放在 `skills/<category>/<skill-name>/`。
-- 跨多个 Skill 的协作流程放在 `workflows/`，不伪装成单一 Skill。
-- 每个 Skill 保留自己的 `SKILL.md`、`agents/` 与必要的 `references/`。
-- 项目自身的 GDD、SPEC、开发进度和实现文档应与项目仓库绑定，不存进本 Skill 仓库。
-- 将 Skill 文件夹上传到 GitHub只代表版本化保存；具体工具仍需显式加载或安装这些 Skill 才会执行其规则。
+- 将单个 Skill 目录复制或安装到本机技能目录后，工具才能加载它。
+- GitHub 上的版本化保存不等于自动安装或自动启用。
+- 更新 Skill 时，同时更新其自身文档与根目录的 `CHANGELOG.md`，并保留历史。

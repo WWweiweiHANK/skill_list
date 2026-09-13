@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://ui/弹性按钮/弹性按钮.gd" id="1_按钮"]
+[ext_resource type="Script" path="res://ui/弹性按钮/弹性反馈.gd" id="2_反馈"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_normal"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.443137, 0.741176, 1)
+border_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 4
+shadow_offset = Vector2(4, 4)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_hover"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.25, 0.582353, 0.805882, 1)
+border_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 4
+shadow_offset = Vector2(4, 4)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_pressed"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.332353, 0.555882, 1)
+border_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_disabled"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.25, 0.25, 0.25, 1)
+border_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[node name="弹性按钮" type="Control"]
+custom_minimum_size = Vector2(180, 72)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_按钮")
+
+[node name="按钮" type="Button" parent="." unique_name_in_owner=true]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBox_normal")
+theme_override_styles/hover = SubResource("StyleBox_hover")
+theme_override_styles/pressed = SubResource("StyleBox_pressed")
+theme_override_styles/disabled = SubResource("StyleBox_disabled")
+
+[node name="标签" type="Label" parent="按钮" unique_name_in_owner=true]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 24
+text = "按钮"
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="弹性反馈" type="Node" parent="." unique_name_in_owner=true]
+script = ExtResource("2_反馈")
+
+[node name="悬停播放器" type="AudioStreamPlayer" parent="." unique_name_in_owner=true]
+
+[node name="点击播放器" type="AudioStreamPlayer" parent="." unique_name_in_owner=true]
+
+[connection signal="pressed" from="按钮" to="." method="_当按钮按下"]
+[connection signal="mouse_entered" from="按钮" to="." method="_当鼠标进入"]
+[connection signal="mouse_exited" from="按钮" to="." method="_当鼠标离开"]

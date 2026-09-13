@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "families": {
+    "button": {
+      "base_capabilities": ["click", "hover_pressed_disabled", "theme", "light_click_feedback", "unified_signals"],
+      "optional_capabilities": ["HoverScale", "HoverFloat", "PressBounce", "Shake", "Pulse", "Glow", "Shine", "Outline", "HoverSound", "ClickSound", "Particle", "Tooltip", "Hold", "Cooldown", "Loading"],
+      "variants": [],
+      "status": "canonical"
+    }
+  },
+  "placement_rule": "family/capabilities or family/variants; never one skill per effect"
+}

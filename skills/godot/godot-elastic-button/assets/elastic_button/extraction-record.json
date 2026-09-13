@@ -1,0 +1,71 @@
+{
+  "mode": "Extract",
+  "family": "button",
+  "scope": {
+    "included": [
+      "normal/hover/pressed/disabled StyleBox states",
+      "hover scale and press-bounce feedback",
+      "unified activation and pointer signals",
+      "optional local hover and click sounds"
+    ],
+    "excluded": [
+      "source project Theme and fonts",
+      "AudioManager Sound bus",
+      "InputManager gamepad policy",
+      "DampedSprings autoload",
+      "gameplay, save, progression, and navigation logic"
+    ]
+  },
+  "dependencies": [
+    {
+      "path": "assets/elastic_button/弹性按钮.tscn",
+      "role": "required"
+    },
+    {
+      "path": "assets/elastic_button/弹性按钮.gd",
+      "role": "required"
+    },
+    {
+      "path": "assets/elastic_button/弹性反馈.gd",
+      "role": "required"
+    },
+    {
+      "path": "host-project audio resources",
+      "role": "optional"
+    },
+    {
+      "path": "source project global singleton and assets",
+      "role": "excluded-business-logic"
+    }
+  ],
+  "risk": {
+    "verdict": "conditional",
+    "mitigations": [
+      "Use a Control root and host layout instead of source fixed Node2D offsets.",
+      "Keep the three copied asset paths together.",
+      "Resolve a class_name collision before importing into a project with an existing 弹性按钮 class."
+    ]
+  },
+  "interfaces": {
+    "signals": [
+      "按钮已按下",
+      "鼠标已进入",
+      "鼠标已离开"
+    ],
+    "methods": [
+      "设置文本",
+      "设置禁用状态"
+    ],
+    "properties": [
+      "按钮文本",
+      "是否禁用",
+      "是否点击后禁用",
+      "默认颜色",
+      "禁用颜色",
+      "边框颜色",
+      "阴影颜色",
+      "悬停音效",
+      "点击音效"
+    ]
+  }
+}

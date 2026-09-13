@@ -1,0 +1,4 @@
+interface:
+  display_name: Godot Source Decomposer
+  short_description: Extract reusable Godot UI and visual component families
+  default_prompt: Analyze or extract a Godot 4.x visual/UI effect into a reusable component family.

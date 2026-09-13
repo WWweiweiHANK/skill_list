@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Godot UI GameMaker component registry",
+  "type": "object",
+  "required": ["version", "families", "placement_rule"],
+  "properties": {
+    "version": {"type": "integer", "minimum": 1},
+    "families": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["base_capabilities", "optional_capabilities", "variants", "status"],
+        "properties": {
+          "base_capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "optional_capabilities": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "variants": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "presets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+          "status": {"enum": ["canonical", "experimental", "deprecated"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "placement_rule": {"type": "string"}
+  },
+  "additionalProperties": false
+}
