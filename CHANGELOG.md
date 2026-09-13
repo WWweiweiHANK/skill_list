@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-13 — 新增 CrazyGames Godot 包体压缩 Skill
+
+- 新增：`crazygames-godot-web-compression`，用于为 CrazyGames 准备 Godot HTML5 导出包；以 Brotli 11 压缩 `index.js`、`index.pck` 与 `index.wasm`，并在删除源文件前逐项解压比对验证。
+- 加载器：仅改写压缩资源 URL，并要求 `index.pck`、`index.wasm` 的 fetch 重定向幂等且不触及 Godot 原有启动逻辑。
+- 部署：明确要求验证 CrazyGames 上传/运行时对 `.br` 直链、MIME 类型与 `Content-Encoding: br` 的处理，再发布清理后的包体。
+
 ## 2026-09-13 — 新增源代码保真 Button2D 提取 Skill
 
 - 新增：`godot-button2d-faithful-extraction`，提供源 `button_2d` 的场景、四态 StyleBox、标签阴影与字体、`Juice2D` 弹簧反馈、悬停/点击音效及原始信号接口。

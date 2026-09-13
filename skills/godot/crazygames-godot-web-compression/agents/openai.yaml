@@ -1,0 +1,4 @@
+interface:
+  display_name: CrazyGames Godot Web Compression
+  short_description: Compress and validate Godot web exports for CrazyGames
+  default_prompt: Compress this Godot HTML5 export for CrazyGames with verified Brotli assets.
