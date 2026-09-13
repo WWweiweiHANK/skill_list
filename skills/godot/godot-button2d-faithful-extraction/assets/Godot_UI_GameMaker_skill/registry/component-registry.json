@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "families": {
+    "button": {
+      "base_capabilities": ["click", "hover_pressed_disabled", "theme", "light_click_feedback", "unified_signals"],
+      "optional_capabilities": ["HoverSound", "ClickSound", "Juice2D"],
+      "variants": ["faithful_button2d"],
+      "presets": ["faithful_button2d"],
+      "status": "canonical"
+    }
+  },
+  "placement_rule": "family/capabilities or family/variants; never one skill per effect"
+}

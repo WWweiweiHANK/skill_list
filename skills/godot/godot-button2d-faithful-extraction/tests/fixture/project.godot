@@ -1,0 +1,16 @@
+; 保真按钮最小验收工程。
+config_version=5
+
+[application]
+config/name="Faithful Button2D Fixture"
+run/main_scene="res://verification_scene.tscn"
+
+[autoload]
+DampedSprings="*res://button/runtime/damped_springs.gd"
+InputManager="*res://input_manager_stub.gd"
+
+[audio]
+default_bus_layout="res://default_bus_layout.tres"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"

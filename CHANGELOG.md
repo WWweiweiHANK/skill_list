@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-13 — 新增源代码保真 Button2D 提取 Skill
+
+- 新增：`godot-button2d-faithful-extraction`，提供源 `button_2d` 的场景、四态 StyleBox、标签阴影与字体、`Juice2D` 弹簧反馈、悬停/点击音效及原始信号接口。
+- 兼容：场景内资源改为相对路径；源二进制 Theme 改写为等效的可移植 `.tres` Theme，并保留 `Match 7.ttf` 与中文 `NotoSansSC.ttf` 本地化分支。
+- 契约：明确要求复用单一 `DampedSprings` 自动加载、提供 `InputManager.using_gamepad()` 宿主契约、配置 `Sound` 音频总线，不再以额外反馈节点或隐藏替代实现掩盖依赖。
+- 验证：通过清单检查、注册表架构验证，并在 Godot 4.6.3 的独立临时项目中加载和按压场景。
+
 ## 2026-09-13 — 强化 Godot 保真拆解门槛
 
 - 调整：`godot-source-decomposer` 在任何提取前必须生成视觉保真清单，覆盖 Theme、字体、排版、StyleBox、资源、边框、阴影、音效、动画、坐标、偏移、锚点、尺寸与视口约束。

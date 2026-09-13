@@ -1,0 +1,150 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="button_2d.gd" id="1"]
+[ext_resource type="Theme" path="fonts/main.tres" id="2"]
+[ext_resource type="Script" path="juice_2d.gd" id="3"]
+[ext_resource type="Script" path="damped_spring_data.gd" id="4"]
+[ext_resource type="AudioStream" path="sounds/hover.wav" id="5"]
+[ext_resource type="AudioStream" path="sounds/click.wav" id="6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h3b2"]
+resource_local_to_scene = true
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25098, 0.25098, 0.25098, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6in7t"]
+resource_local_to_scene = true
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25, 0.582353, 0.805882, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7cd6"]
+resource_local_to_scene = true
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0.332353, 0.555882, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_offset = Vector2(6, 6)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qod6u"]
+resource_local_to_scene = true
+content_margin_top = 4.0
+bg_color = Color(0, 0.443137, 0.741176, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+anti_aliasing = false
+
+[sub_resource type="Resource" id="Resource_i6376"]
+script = ExtResource("4")
+damping_ratio = 0.5
+frequency = 12.0
+intensity = 15.0
+metadata/_custom_type_script = "uid://bpyrk6cg7pd7x"
+
+[sub_resource type="Resource" id="Resource_fqkjo"]
+script = ExtResource("4")
+damping_ratio = 0.5
+frequency = 12.0
+intensity = 0.1
+metadata/_custom_type_script = "uid://bpyrk6cg7pd7x"
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tplvl"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6")
+
+[node name="Button2D" type="Node2D"]
+script = ExtResource("1")
+shadow_size = 3.0
+shadow_offset = Vector2(6, 6)
+
+[node name="Button" type="Button" parent="." groups=["focusable"]]
+texture_filter = 1
+offset_left = -90.0
+offset_top = -40.5
+offset_right = 90.0
+offset_bottom = 40.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7h3b2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6in7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r7cd6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qod6u")
+action_mode = 0
+
+[node name="Label" type="Label" parent="Button"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 48
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Juice" type="Node2D" parent="." node_paths=PackedStringArray("target_node")]
+script = ExtResource("3")
+target_node = NodePath("..")
+twist_animation = SubResource("Resource_i6376")
+jiggle_animation = SubResource("Resource_fqkjo")
+metadata/_custom_type_script = "uid://bhs3ha3w2rjt7"
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5")
+volume_db = 12.0
+bus = &"Sound"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_tplvl")
+bus = &"Sound"
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

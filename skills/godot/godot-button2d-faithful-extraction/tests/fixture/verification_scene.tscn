@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://button/button_2d.tscn" id="1"]
+[ext_resource type="Script" path="res://verification.gd" id="2"]
+
+[node name="Verification" type="Node"]
+script = ExtResource("2")
+
+[node name="Button2D" parent="." instance=ExtResource("1")]
