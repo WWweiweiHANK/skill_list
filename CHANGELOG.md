@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-14 — 强化 Godot 外部场景与预期失败约束
+
+- 调整：`ai-gd-code-std` 新增外部 `.tscn` 使用 `%唯一节点` 时的参考场景比对、Godot MCP/编辑器创建、ASCII 资源 ID 与独立/宿主双重加载验证要求。
+- 调整：明确场景解析、资源 ID、编译、空节点与运行期错误属于实现错误，不能作为测试驱动开发中的有效“预期失败”。
+- 归档：已同步本机 `ai-gd-code-std` 的完整 Skill 文档至 `skills/godot/ai-gd-code-std/`。
+
 ## 2026-09-13 — 新增 Godot 游戏打点 Skill
 
 - 新增：`godot-game-analytics`，用于 Godot 4 游戏的事件总线埋点、低频领域事件、高频行为聚合、离线批量上报和 HTTP 传输审查。
