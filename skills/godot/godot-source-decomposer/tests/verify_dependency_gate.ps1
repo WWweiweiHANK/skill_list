@@ -2,20 +2,20 @@
 
 $技能根目录 = Split-Path -Parent $PSScriptRoot
 $说明路径 = Join-Path $技能根目录 "SKILL.md"
-$说明文本 = Get-Content -Raw -LiteralPath $说明路径
+$UTF8无标记 = [System.Text.UTF8Encoding]::new($false)
+$说明文本 = [System.IO.File]::ReadAllText($说明路径, $UTF8无标记)
 
 foreach ($片段 in @(
-	"relative to the scene file",
-	"minimal fixture",
 	"faithful defaults plus optional parameterization",
+	"Ask only when",
 	"unresolved dependency",
-	"Theme, fonts",
-	"coordinates, offsets",
+	"multiple credible boundaries",
+	"changes the host-system integration contract",
 	"Do not ask the user to choose between faithful reconstruction and parameter exposure"
 )) {
 	if (-not $说明文本.Contains($片段)) {
-		throw "拆解 Skill 缺少保真拆解门槛：$片段"
+		throw "拆解决策门槛未覆盖关键依赖判断：$片段"
 	}
 }
 
-Write-Output "Godot source decomposition portability guidance verified."
+Write-Output "Godot source decomposition dependency gate verified."
