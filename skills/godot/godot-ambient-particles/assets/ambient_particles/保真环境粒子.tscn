@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="环境粒子控制器.gd" id="1_controller"]
+[ext_resource type="Texture2D" path="square.png" id="2_texture"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_additive"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_alpha"]
+colors = PackedColorArray(1, 1, 1, 0.427451, 1, 1, 1, 0.160784)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture_alpha"]
+gradient = SubResource("Gradient_alpha")
+
+[sub_resource type="Curve" id="Curve_scale"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.249258, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.747774, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_scale"]
+curve = SubResource("Curve_scale")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dust"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 100, 1)
+angle_min = 1.00001
+angle_max = 359.0
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = 100.0
+angular_velocity_max = 200.0
+gravity = Vector3(0, 20, 0)
+tangential_accel_min = -20.0
+tangential_accel_max = 20.0
+damping_min = 5.0
+damping_max = 15.0
+scale_min = 0.5
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_scale")
+color_initial_ramp = SubResource("GradientTexture_alpha")
+turbulence_noise_speed_random = 1.83
+
+[node name="保真环境粒子" type="Node2D" node_paths=PackedStringArray("粒子节点")]
+position = Vector2(160, 90)
+script = ExtResource("1_controller")
+"粒子节点" = NodePath("粒子")
+
+[node name="粒子" type="GPUParticles2D" parent="." unique_name_in_owner=true]
+material = SubResource("CanvasItemMaterial_additive")
+amount = 50
+texture = ExtResource("2_texture")
+lifetime = 3.0
+preprocess = 1.0
+visibility_rect = Rect2(-400, -400, 800, 800)
+process_material = SubResource("ParticleProcessMaterial_dust")

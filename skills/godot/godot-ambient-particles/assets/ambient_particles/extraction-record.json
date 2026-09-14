@@ -1,0 +1,65 @@
+{
+  "mode": "Extract",
+  "family": "ambient-particles",
+  "scope": {
+    "included": [
+      "GPUParticles2D dust node",
+      "additive CanvasItemMaterial",
+      "square particle texture",
+      "alpha gradient, scale curve, and ParticleProcessMaterial",
+      "source position and visibility rectangle"
+    ],
+    "excluded": [
+      "title-screen background, terrain, lights, UI, audio, and interaction",
+      "global singletons and title-screen script"
+    ]
+  },
+  "dependencies": [
+    {
+      "path": "assets/ambient_particles/保真环境粒子.tscn",
+      "role": "required"
+    },
+    {
+      "path": "assets/ambient_particles/环境粒子控制器.gd",
+      "role": "required"
+    },
+    {
+      "path": "assets/ambient_particles/square.png",
+      "role": "required"
+    },
+    {
+      "path": "host scene placement and viewport scaling",
+      "role": "project-specific"
+    },
+    {
+      "path": "source title-screen scene and unrelated presentation resources",
+      "role": "excluded-business-logic"
+    }
+  ],
+  "risk": {
+    "verdict": "conditional",
+    "mitigations": [
+      "Keep the default 保真尘埃 values unchanged for source parity.",
+      "Place the Node2D according to the target viewport; the source position assumes a 640×1280 title viewport.",
+      "Treat 雪花 as a named variant rather than source-faithful behavior."
+    ]
+  },
+  "interfaces": {
+    "signals": [],
+    "methods": [
+      "设置预设",
+      "应用参数",
+      "获取粒子"
+    ],
+    "properties": [
+      "效果类型",
+      "粒子密度",
+      "风向",
+      "风力",
+      "速度倍率",
+      "大小倍率",
+      "粒子颜色",
+      "粒子节点"
+    ]
+  }
+}
