@@ -14,7 +14,7 @@
 | 分类 | Skills | 适用范围 |
 | --- | --- | --- |
 | [Creative](skills/creative/) | `game-art-agent`、`game-design-thinking-partner`、`holo-card`、`low-poly-game-asset-generator`、`retro-liminal-ps1-background` | 游戏创意、视觉资产与互动卡片 |
-| [Godot](skills/godot/) | `ai-gd-code-std`、`crazygames-godot-web-compression`、`godot-ambient-particles`、`godot-button2d-faithful-extraction`、`godot-crt-scanlines`、`godot-elastic-button`、`godot-game-analytics`、`godot-game-architecture-std`、`godot-source-decomposer` | Godot 4 代码、架构、组件、埋点、UI 复用、保真环境粒子与 CrazyGames 网页包 Brotli 压缩；拆解保留源默认值并可开放局部参数，仅在依赖未解析、边界歧义或宿主契约变化时询问，组件资产采用相对路径以支持任意安装目录 |
+| [Godot](skills/godot/) | `ai-gd-code-std`、`crazygames-godot-web-compression`、`godot-ambient-particles`、`godot-button2d-faithful-extraction`、`godot-crt-scanlines`、`godot-elastic-button`、`godot-game-analytics`、`godot-game-architecture-std`、`godot-source-decomposer` | Godot 4 代码、架构、组件、埋点、UI 复用、保真环境粒子、圆形屏幕转场与 CrazyGames 网页包 Brotli 压缩；拆解保留源默认值并可开放局部参数，仅在依赖未解析、边界歧义或宿主契约变化时询问，组件资产采用相对路径以支持任意安装目录 |
 | [UI](skills/ui/) | `ui-semantic-lightweight-arcade` | 轻量街机风格与颜色语义 |
 | [Engineering](skills/engineering/) | `ad-reward-service`、`ai-py-code-std`、`systematic-debugging`、`test-driven-development`、`verification-before-completion`、`receiving-code-review`、`requesting-code-review` | 广告奖励服务、Python 规范、调试、测试、验证与评审 |
 | [Project](skills/project/) | `game-dev-change-log-maintainer`、`project-change-log` | 项目开发变更记录 |

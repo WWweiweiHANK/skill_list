@@ -6,6 +6,12 @@
       "optional_capabilities": ["HoverScale", "HoverFloat", "PressBounce", "Shake", "Pulse", "Glow", "Shine", "Outline", "HoverSound", "ClickSound", "Particle", "Tooltip", "Hold", "Cooldown", "Loading"],
       "variants": [],
       "status": "canonical"
+    },
+    "screen-transition": {
+      "base_capabilities": ["full_screen_overlay", "transition_timeline", "input_blocking"],
+      "optional_capabilities": ["TransitionSound", "AutoloadSceneChange"],
+      "variants": ["circle-iris"],
+      "status": "canonical"
     }
   },
   "placement_rule": "family/capabilities or family/variants; never one skill per effect"

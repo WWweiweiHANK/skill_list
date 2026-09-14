@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="圆形转场控制器.gd" id="1_controller"]
+[ext_resource type="Shader" path="圆形转场.gdshader" id="2_shader"]
+[ext_resource type="Texture2D" path="icon.svg" id="3_canvas"]
+[ext_resource type="AudioStream" path="Transition.wav" id="4_sound"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_circle"]
+shader = ExtResource("2_shader")
+shader_parameter/tint_color = Color(0, 0, 0, 1)
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 1.0
+shader_parameter/threshold_multiplier = 1.25
+
+[node name="圆形转场" type="CanvasLayer" node_paths=PackedStringArray("圆形遮罩节点", "输入遮罩节点", "转场音效节点")]
+process_mode = 3
+layer = 16
+script = ExtResource("1_controller")
+"圆形遮罩节点" = NodePath("圆形遮罩")
+"输入遮罩节点" = NodePath("输入遮罩")
+"转场音效节点" = NodePath("转场音效")
+
+[node name="圆形遮罩" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_circle")
+scale = Vector2(15, 8.4375)
+texture = ExtResource("3_canvas")
+centered = false
+
+[node name="输入遮罩" type="ColorRect" parent="."]
+visible = false
+light_mask = 3
+visibility_layer = 1048575
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+color = Color(0, 0, 0, 0)
+
+[node name="转场音效" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sound")
+volume_db = 6.0
+bus = &"Sound"

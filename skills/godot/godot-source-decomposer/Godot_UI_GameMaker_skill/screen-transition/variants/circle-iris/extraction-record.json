@@ -1,0 +1,37 @@
+{
+  "mode": "Extract",
+  "family": "screen-transition",
+  "scope": {
+    "included": [
+      "CanvasLayer circle-iris overlay",
+      "black circle ShaderMaterial and full-screen Sprite2D carrier",
+      "transparent input blocker",
+      "transition audio and optional scene-change orchestration"
+    ],
+    "excluded": [
+      "source project InputManager cursor and focus implementation",
+      "source project Utils singleton",
+      "specific gameplay scene paths and domain state"
+    ]
+  },
+  "dependencies": [
+    {"path": "圆形转场.gdshader", "role": "required"},
+    {"path": "icon.svg", "role": "required"},
+    {"path": "Transition.wav", "role": "optional"},
+    {"path": "Sound audio bus", "role": "project-specific"},
+    {"path": "Autoload placement for 执行场景转场", "role": "project-specific"}
+  ],
+  "risk": {
+    "verdict": "conditional",
+    "mitigations": [
+      "Runtime scaling derives the carrier size from the current viewport while retaining the source 1920×1080 defaults.",
+      "Use 收拢完成 and 展开完成 when the host does not install this component as an Autoload.",
+      "Map 音频总线 to an existing host bus when Sound is absent."
+    ]
+  },
+  "interfaces": {
+    "signals": ["收拢完成", "展开完成"],
+    "methods": ["播放收拢", "播放展开", "执行场景转场", "获取圆形半径"],
+    "properties": ["遮罩颜色", "圆心", "收拢时长", "展开时长", "遮罩阈值倍率", "收拢缓动", "展开缓动", "是否阻断输入", "是否播放音效", "音频总线"]
+  }
+}
