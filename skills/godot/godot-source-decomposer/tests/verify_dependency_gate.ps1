@@ -11,7 +11,9 @@ foreach ($片段 in @(
 	"unresolved dependency",
 	"multiple credible boundaries",
 	"changes the host-system integration contract",
-	"Do not ask the user to choose between faithful reconstruction and parameter exposure"
+	"Do not ask the user to choose between faithful reconstruction and parameter exposure",
+	"particle emission coverage",
+	"viewport-adaptation contract"
 )) {
 	if (-not $说明文本.Contains($片段)) {
 		throw "拆解决策门槛未覆盖关键依赖判断：$片段"

@@ -41,6 +41,7 @@
     "mitigations": [
       "Keep the default 保真尘埃 values unchanged for source parity.",
       "Place the Node2D according to the target viewport; the source position assumes a 640×1280 title viewport.",
+      "Use 设置屏幕雪花 when the effect must cover a host viewport; it computes emission coverage, density, visibility bounds, size, and alpha separately from the faithful baseline.",
       "Treat 雪花 as a named variant rather than source-faithful behavior."
     ]
   },
@@ -59,6 +60,9 @@
       "速度倍率",
       "大小倍率",
       "粒子颜色",
+      "是否适配屏幕",
+      "屏幕密度倍率",
+      "粒子可见度倍率",
       "粒子节点"
     ]
   }

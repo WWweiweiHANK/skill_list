@@ -39,7 +39,11 @@ foreach ($片段 in @(
 	'@export var 速度倍率: float',
 	'@export var 大小倍率: float',
 	'@export var 粒子颜色: Color',
+	'@export var 是否适配屏幕: bool',
+	'@export var 屏幕密度倍率: float',
+	'@export var 粒子可见度倍率: float',
 	'func 设置预设',
+	'func 设置屏幕雪花',
 	'func 应用参数'
 )) {
 	if (-not $控制器文本.Contains($片段)) {

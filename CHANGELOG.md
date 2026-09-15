@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-15 — 增强 Godot 环境粒子与屏幕适配拆解
+
+- 调整：`godot-ambient-particles` 新增 `设置屏幕雪花`，在保留保真尘埃默认参数的同时，按视口扩大发射和可见区域、按面积换算密度，并提高雪花尺寸与透明度；公开屏幕适配、密度与可见度控制。
+- 调整：`godot-source-decomposer` 将粒子发射覆盖、密度、尺寸、透明度和 z 序纳入视觉清单；任何宣称覆盖宿主屏幕的效果必须给出并验证视口适配契约。
+- 验证：环境粒子独立 Godot 夹具覆盖保真尘埃、雪花与屏幕雪花；两套 Skill 的静态契约检查均已通过。
+
 ## 2026-09-15 — 提取 Godot 圆形屏幕转场组件
 
 - 新增：`godot-source-decomposer` 的 `screen-transition/circle-iris` 变体，保留源项目的 CanvasLayer 层级 16、黑色硬边圆形 Shader、1.25 阈值、0.5 秒 Quad 收拢/展开、透明输入拦截层及 `Transition.wav` 音效。

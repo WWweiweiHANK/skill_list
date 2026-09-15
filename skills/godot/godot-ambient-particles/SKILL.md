@@ -23,11 +23,17 @@ Use the root node's exports:
 | `大小倍率` | Multiplies source size range 0.5–0.75 |
 | `粒子颜色` | Tints the source alpha ramp without changing its fade timing |
 | `效果类型` | `保真尘埃` or the explicit `雪花` variant |
+| `是否适配屏幕` / `屏幕密度倍率` | 将发射域和可见区域适配当前视口，并按面积换算粒子密度 |
+| `粒子可见度倍率` | 增强或减弱原有透明度渐变，不改变渐变节奏 |
 
-Call `设置预设` only when changing the variant at runtime; call `应用参数` after changing exported values by code. The component uses an additive CanvasItem material and is decorative: it does not process input or require an autoload.
+Call `设置预设` only when changing the variant at runtime; call `设置屏幕雪花` for a full-screen menu snow baseline, then refine its exported values if needed. Call `应用参数` after changing exported values by code. The component uses an additive CanvasItem material and is decorative: it does not process input or require an autoload.
 
 ## Fidelity and placement
 
-Keep `保真尘埃` settings unchanged when source parity matters. The source coordinate origin is `(160, 90)` in a 640×1280 title viewport; move the root according to the host scene rather than treating that coordinate as responsive layout. Do not copy the source title-screen background, UI, audio, themes, or gameplay scripts.
+Keep `保真尘埃` settings unchanged when source parity matters. The source coordinate origin is `(160, 90)` in a 640×1280 title viewport; move the root according to the host scene rather than treating that coordinate as responsive layout.
+
+For a visibly distributed snow layer, use `设置屏幕雪花`: it expands the 600×200 source emission area to the viewport, makes the visibility rectangle viewport-sized with 64-pixel margins, scales the base density by viewport-area ÷ 120000, raises size to `2.5`, and raises alpha by `1.75`. This is intentionally a screen-presentation preset, not source-fidelity dust. Keep it below interactive controls; additive particles are otherwise easy to miss or can reduce text readability.
+
+Do not copy the source title-screen background, UI, audio, themes, or gameplay scripts.
 
 See [extraction-record.json](assets/ambient_particles/extraction-record.json) for the exact retained and excluded dependencies.
