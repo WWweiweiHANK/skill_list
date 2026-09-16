@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-17 — 新增 Cozy Horror Lowpoly Art Director
+
+- 新增：`skills/creative/cozy-horror-lowpoly-art-director/`，提供夜班图书馆与小型营业空间的低多边形 cozy horror 美术方向、审图、Grill、角色与环境指导。
+- 基调：保留 DAY 1 的 80% 舒适 / 15% 孤独 / 5% 不安、暖室内与冷雨夜、构图和灯光优先、引擎内修正优先及与 GameArtAgent 的职责划分。
+- 格式：采用 `name` / `description` 标准入口及 `agents/openai.yaml` 显示配置；原讨论已完整取回的第 1–30 节放入 `references/art-direction.md`，入口整理验收条件并明确文字/静帧审查的证据边界。
+
 ## 2026-09-15 — 增强 Godot 环境粒子与屏幕适配拆解
 
 - 调整：`godot-ambient-particles` 新增 `设置屏幕雪花`，在保留保真尘埃默认参数的同时，按视口扩大发射和可见区域、按面积换算密度，并提高雪花尺寸与透明度；公开屏幕适配、密度与可见度控制。

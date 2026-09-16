@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cozy Horror Lowpoly Art Director"
+  short_description: "温暖夜班与克制怪谈的低多边形美术指导，涵盖构图、灯光和可读性"
+  default_prompt: "使用 $cozy-horror-lowpoly-art-director 审查这个场景，指出最重要的 1–3 个视觉问题并给出修改顺序。"
