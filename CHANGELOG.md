@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-21 — 归档三套 UI 设计 Skills
+
+- 新增：`skills/ui/finesse-ui/`，来自 `mouse-lin/finesse-skill`（`5050b6c`），包含完整参考资料、示例、检测脚本和 OpenAI 元数据。
+- 新增：`skills/ui/taste-skill/`，来自 `Leonxlnx/taste-skill`（`5217fb4`），安装名称为 `design-taste-frontend`，用于落地页、作品集与现有页面改版。
+- 新增：`skills/ui/impeccable/`，来自 `pbakaus/impeccable`（`f2c7051`），包含设计、审查、无障碍、响应式、动效与收尾命令所需的完整参考资料和脚本。
+- 安装：三套 Skill 同步安装到本机 Codex 技能目录；本次按用户明确要求归档第三方 Skill。
+
 ## 2026-09-17 — 新增 Cozy Horror Lowpoly Art Director
 
 - 新增：`skills/creative/cozy-horror-lowpoly-art-director/`，提供夜班图书馆与小型营业空间的低多边形 cozy horror 美术方向、审图、Grill、角色与环境指导。

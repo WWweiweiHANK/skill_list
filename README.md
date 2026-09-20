@@ -1,6 +1,6 @@
 # 自定义 Skills 与工作模式
 
-本仓库集中保存可复用的个人 Skill，以及组合多个 Skill 的上层工作模式。系统预装 Skill 与第三方插件 Skill 不在此仓库维护。
+本仓库集中保存可复用的个人 Skill，以及组合多个 Skill 的上层工作模式。系统预装 Skill 不在此仓库维护；第三方 Skill 仅在明确要求时归档。
 
 ## 分类原则
 
@@ -15,7 +15,7 @@
 | --- | --- | --- |
 | [Creative](skills/creative/) | [`cozy-horror-lowpoly-art-director`](skills/creative/cozy-horror-lowpoly-art-director/SKILL.md)、`game-art-agent`、`game-design-thinking-partner`、`holo-card`、`low-poly-game-asset-generator`、`retro-liminal-ps1-background` | 游戏创意、克制怪谈美术指导、视觉资产与互动卡片 |
 | [Godot](skills/godot/) | `ai-gd-code-std`、`crazygames-godot-web-compression`、`godot-ambient-particles`、`godot-button2d-faithful-extraction`、`godot-crt-scanlines`、`godot-elastic-button`、`godot-game-analytics`、`godot-game-architecture-std`、`godot-source-decomposer` | Godot 4 代码、架构、组件、埋点、UI 复用、保真与屏幕适配环境粒子、圆形屏幕转场与 CrazyGames 网页包 Brotli 压缩；拆解保留源默认值并可开放局部参数，仅在依赖未解析、边界歧义或宿主契约变化时询问，组件资产采用相对路径以支持任意安装目录 |
-| [UI](skills/ui/) | `ui-semantic-lightweight-arcade` | 轻量街机风格与颜色语义 |
+| [UI](skills/ui/) | `finesse-ui`、`impeccable`、`taste-skill`、`ui-semantic-lightweight-arcade` | 网页与产品界面设计、改版、审查、收尾，以及轻量街机风格与颜色语义 |
 | [Engineering](skills/engineering/) | `ad-reward-service`、`ai-py-code-std`、`systematic-debugging`、`test-driven-development`、`verification-before-completion`、`receiving-code-review`、`requesting-code-review` | 广告奖励服务、Python 规范、调试、测试、验证与评审 |
 | [Project](skills/project/) | `game-dev-change-log-maintainer`、`project-change-log` | 项目开发变更记录 |
 | [Knowledge](skills/knowledge/) | `ima-skill`、`weread-skills` | 笔记、知识库与微信读书 |
