@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-02 — 新增腾讯云服务器与域名接入 Skill
+
+- 新增并安装 `tencent-cloud-web-hosting`，完整归档至 `skills/engineering/tencent-cloud-web-hosting/`，包含SKILL.md、服务器资料和agents/openai.yaml；用于在其他项目复用已有广州云服务器、部署新网站并接入用户指定域名。
+- 2026-11-02只读实测确认SSH、ubuntu的sudo能力、Caddy/待办服务、路由及HTTP入口，记录实际新release而非固定使用旧迁移版本。只引用本机私钥路径，不归档私钥、密码、Cookie、云API密钥或令牌。
+- 区分服务器、DNS及云控制台权限，保留既有待办与其他站点；新域名改动采用配置备份、验证、重载及公网验收，明确HTTP/HTTPS差异和现有入口未配置HTTPS的事实。README分类索引已更新。
+- 验证：无技能时空项目无法定位服务器；加载技能后的独立只读场景测试可给出正确SSH预检与权限缺口，HTTPS/VPN变体判断符合现状。本机与归档两份均通过quick_validate，3份文件逐一哈希相同，未包含凭据内容，git diff --check通过。
+
 ## 2026-09-21 — 归档三套 UI 设计 Skills
 
 - 新增：`skills/ui/finesse-ui/`，来自 `mouse-lin/finesse-skill`（`5050b6c`），包含完整参考资料、示例、检测脚本和 OpenAI 元数据。

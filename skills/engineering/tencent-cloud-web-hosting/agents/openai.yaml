@@ -1,0 +1,4 @@
+interface:
+  display_name: "腾讯云服务器与域名接入"
+  short_description: "复用广州云服务器的现有SSH权限，部署新网站、接入域名并验证公网访问"
+  default_prompt: "使用 $tencent-cloud-web-hosting 为我的新网站接入域名，复用已有广州服务器并保留现有待办。"
